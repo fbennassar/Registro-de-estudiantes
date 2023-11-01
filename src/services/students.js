@@ -82,3 +82,37 @@ exports.deleteStudentById = async (id) => {
 
     return student;
 }
+
+exports.updateStudentById = async (id, data) => {
+    const studentIndex = students_data.findIndex((student) => student.id === id);
+
+    if (studentIndex === -1) {
+        throw new Error('Student not found');
+    }
+
+    // Update the student's data
+    students_data[studentIndex] = { ...students_data[studentIndex], ...data };
+
+    // Write the updated students_data to database.json
+    fs.writeFileSync(path.join(__dirname, '../models/database.json'), JSON.stringify(students_data, null, 2));
+
+    function calculateAge(birthdate) {
+        var birthDate = new Date(birthdate);
+        var currentDate = new Date();
+        
+        var age = currentDate.getFullYear() - birthDate.getFullYear();
+        var month = currentDate.getMonth() - birthDate.getMonth();
+        
+        if (month < 0 || (month === 0 && currentDate.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        
+        return age;
+    }
+
+    students_data[studentIndex].age = calculateAge(`${students_data[studentIndex].yearOfBirth}-${students_data[studentIndex].monthOfBirth}-${students_data[studentIndex].dayOfBirth}`);
+
+
+
+    return students_data[studentIndex];
+}

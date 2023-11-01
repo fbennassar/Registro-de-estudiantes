@@ -53,3 +53,16 @@ module.exports.deleteStudentById = async (req, res) => {
         }
     
     }
+
+    module.exports.updateStudentById = async (req, res) => {
+        
+            try {
+                const data = await students.updateStudentById(req.params.id, req.body);
+                res.send(data);
+            }
+        
+            catch (err) {
+                res.status(500).send({ message: err.message });
+            }
+        
+        }
