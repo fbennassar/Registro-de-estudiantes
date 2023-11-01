@@ -4,15 +4,21 @@
   "description": "sistema de registro de notas",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "fbennassar"
+    "url": "https://github.com/fbennassar/Registro-de-estudiantes.git"
   },
   "keywords": [
     "registro"
   ],
   "author": "Francisco Bennassar",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
 }

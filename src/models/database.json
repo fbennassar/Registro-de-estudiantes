@@ -1,0 +1,30 @@
+[
+  {
+    "firstName": "example",
+    "lastName": "test",
+    "id": "123456789",
+    "gender": "example",
+    "dayOfBirth": "20",
+    "monthOfBirth": "5",
+    "yearOfBirth": "2004",
+    "age": "",
+    "notes": "10,15,20",
+    "average": ""
+  },
+  {
+    "firstName": "Francisco",
+    "lastName": "Bennassar",
+    "id": "30474123",
+    "gender": "male",
+    "dayOfBirth": "28",
+    "monthOfBirth": "4",
+    "yearOfBirth": "2004",
+    "age": 19,
+    "notes": [
+      "10",
+      "16",
+      "20"
+    ],
+    "average": 15.333333333333334
+  }
+]
