@@ -1,0 +1,18 @@
+{
+  "name": "registro",
+  "version": "1.0.0",
+  "description": "sistema de registro de notas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "fbennassar"
+  },
+  "keywords": [
+    "registro"
+  ],
+  "author": "Francisco Bennassar",
+  "license": "ISC"
+}
