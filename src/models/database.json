@@ -10,21 +10,5 @@
     "age": "",
     "notes": "10,15,20",
     "average": ""
-  },
-  {
-    "firstName": "Andres",
-    "lastName": "Bennassar",
-    "id": "30474123",
-    "gender": "male",
-    "dayOfBirth": "28",
-    "monthOfBirth": "4",
-    "yearOfBirth": "2005",
-    "age": 19,
-    "notes": [
-      "10",
-      "16",
-      "20"
-    ],
-    "average": 15.333333333333334
   }
 ]
