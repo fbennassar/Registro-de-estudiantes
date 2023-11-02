@@ -93,9 +93,7 @@ exports.updateStudentById = async (id, data) => {
     // Update the student's data
     students_data[studentIndex] = { ...students_data[studentIndex], ...data };
 
-    // Write the updated students_data to database.json
-    fs.writeFileSync(path.join(__dirname, '../models/database.json'), JSON.stringify(students_data, null, 2));
-
+    
     function calculateAge(birthdate) {
         var birthDate = new Date(birthdate);
         var currentDate = new Date();
@@ -116,16 +114,18 @@ exports.updateStudentById = async (id, data) => {
 
     var sum = 0;
     var note = 0;
-
+    
     for (var i = 0; i < students_data[studentIndex].notes.length; i++) {
         note = Number(students_data[studentIndex].notes[i]);
         sum += note;
-
+        
     }
-
+    
     var average = sum / students_data[studentIndex].notes.length;
-
+    
     students_data[studentIndex].average = average;
+    // Write the updated students_data to database.json
+    fs.writeFileSync(path.join(__dirname, '../models/database.json'), JSON.stringify(students_data, null, 2));
 
     return students_data[studentIndex];
 }
