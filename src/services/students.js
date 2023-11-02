@@ -112,7 +112,20 @@ exports.updateStudentById = async (id, data) => {
 
     students_data[studentIndex].age = calculateAge(`${students_data[studentIndex].yearOfBirth}-${students_data[studentIndex].monthOfBirth}-${students_data[studentIndex].dayOfBirth}`);
 
+    students_data[studentIndex].notes = students_data[studentIndex].notes.split(',');
 
+    var sum = 0;
+    var note = 0;
+
+    for (var i = 0; i < students_data[studentIndex].notes.length; i++) {
+        note = Number(students_data[studentIndex].notes[i]);
+        sum += note;
+
+    }
+
+    var average = sum / students_data[studentIndex].notes.length;
+
+    students_data[studentIndex].average = average;
 
     return students_data[studentIndex];
 }
