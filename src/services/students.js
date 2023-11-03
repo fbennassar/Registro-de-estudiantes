@@ -62,6 +62,7 @@ exports.createStudent = async (data) => {
 
     students_data.push(newStudent);
 
+    // Escribir en database.json
     fs.writeFileSync(path.join(__dirname, '../models/database.json'), JSON.stringify(students_data, null, 2));
 
     return newStudent;
@@ -78,6 +79,7 @@ exports.deleteStudentById = async (id) => {
 
     students_data.splice(studentIndex, 1);
 
+    // Escribir en database.json
     fs.writeFileSync(path.join(__dirname, '../models/database.json'), JSON.stringify(students_data, null, 2));
 
     return student;
@@ -90,7 +92,7 @@ exports.updateStudentById = async (id, data) => {
         throw new Error('Student not found');
     }
 
-    // Update the student's data
+    // Actualizar datos del estudiante
     students_data[studentIndex] = { ...students_data[studentIndex], ...data };
 
     
@@ -110,7 +112,9 @@ exports.updateStudentById = async (id, data) => {
 
     students_data[studentIndex].age = calculateAge(`${students_data[studentIndex].yearOfBirth}-${students_data[studentIndex].monthOfBirth}-${students_data[studentIndex].dayOfBirth}`);
 
-    students_data[studentIndex].notes = students_data[studentIndex].notes.split(',');
+    if (typeof students_data[studentIndex].notes === 'string') {
+        students_data[studentIndex].notes = students_data[studentIndex].notes.split(',');
+    }
 
     var sum = 0;
     var note = 0;
@@ -124,7 +128,8 @@ exports.updateStudentById = async (id, data) => {
     var average = sum / students_data[studentIndex].notes.length;
     
     students_data[studentIndex].average = average;
-    // Write the updated students_data to database.json
+
+    // Escribir en database.json
     fs.writeFileSync(path.join(__dirname, '../models/database.json'), JSON.stringify(students_data, null, 2));
 
     return students_data[studentIndex];
